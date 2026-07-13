@@ -7,26 +7,16 @@ services:
     tty: true
 
     ports:
-      # Minecraft Java
       - "25565:25565/tcp"
-
-      # Minecraft Bedrock mediante Geyser
       - "19132:19132/udp"
 
     environment:
-      # Obligatorio
       EULA: "TRUE"
-
-      # Zona horaria
       TZ: "America/Lima"
 
-      # Servidor Java optimizado
       TYPE: "PAPER"
-
-      # Última versión estable disponible
       VERSION: "LATEST"
 
-      # Configuración general
       MOTD: "Servidor EPIS | Java + Bedrock"
       SERVER_NAME: "Servidor EPIS"
 
@@ -46,17 +36,15 @@ services:
       VIEW_DISTANCE: "12"
       SIMULATION_DISTANCE: "8"
 
-      # Administración remota
       ENABLE_RCON: "TRUE"
-      RCON_PASSWORD: "CambiaEstaClavePorUnaSegura"
+      RCON_PASSWORD: "CAMBIA_ESTA_CLAVE_POR_UNA_SEGURA"
 
-      # Aplicar las variables al server.properties
       OVERRIDE_SERVER_PROPERTIES: "TRUE"
 
-      # Plugins esenciales para Crossplay
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+        https://ci.viaversion.com/job/ViaVersion/lastSuccessfulBuild/artifact/build/libs/ViaVersion.jar
 
     volumes:
       - minecraft-crossplay-data:/data
