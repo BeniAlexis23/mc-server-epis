@@ -1,36 +1,48 @@
 services:
-  minecraft-bedrock:
-    image: itzg/minecraft-bedrock-server:latest
-    container_name: minecraft-bedrock
+  minecraft-crossplay:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft-crossplay
     restart: unless-stopped
+    stdin_open: true
+    tty: true
 
     ports:
+      # Minecraft Java
+      - "25565:25565/tcp"
+
+      # Minecraft Bedrock mediante Geyser
       - "19132:19132/udp"
 
     environment:
       EULA: "TRUE"
-      VERSION: "LATEST"
       TZ: "America/Lima"
-      ALLOW_LIST: "false"
 
-      SERVER_NAME: "Servidor de EPIS"
-      LEVEL_NAME: "Agua Dulce"
+      # Servidor Java optimizado y compatible con plugins
+      TYPE: "PAPER"
+      VERSION: "LATEST"
 
-      GAMEMODE: "survival"
+      SERVER_NAME: "Servidor de Beni"
+      MOTD: "Servidor Java y Bedrock de Beni"
+
+      MODE: "survival"
       DIFFICULTY: "normal"
-
       MAX_PLAYERS: "10"
+
       ONLINE_MODE: "true"
-      ALLOW_CHEATS: "false"
+      ENABLE_WHITELIST: "false"
 
-      VIEW_DISTANCE: "24"
-      TICK_DISTANCE: "8"
+      VIEW_DISTANCE: "12"
+      SIMULATION_DISTANCE: "8"
 
-      DEFAULT_PLAYER_PERMISSION_LEVEL: "member"
-      PLAYER_IDLE_TIMEOUT: "30"
+      MEMORY: "4G"
+
+      # Descarga automática de plugins
+      PLUGINS: |
+        https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
+        https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
 
     volumes:
-      - minecraft-bedrock-data:/data
+      - minecraft-crossplay-data:/data
 
 volumes:
-  minecraft-bedrock-data:
+  minecraft-crossplay-data:
