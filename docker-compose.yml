@@ -10,36 +10,60 @@ services:
       # Minecraft Java
       - "25565:25565/tcp"
 
-      # Minecraft Bedrock mediante Geyser
+      # Minecraft Bedrock (Geyser)
       - "19132:19132/udp"
 
     environment:
+      # Obligatorio
       EULA: "TRUE"
+
+      # Zona horaria
       TZ: "America/Lima"
 
-      # Servidor Java optimizado y compatible con plugins
+      # Tipo de servidor
       TYPE: "PAPER"
+
+      # Siempre la última versión estable
       VERSION: "LATEST"
 
-      SERVER_NAME: "Servidor de Beni"
-      MOTD: "Servidor Java y Bedrock de Beni"
+      # Configuración del servidor
+      MOTD: "§aServidor EPIS §7| §bJava + Bedrock"
+      SERVER_NAME: "Servidor EPIS"
 
       MODE: "survival"
       DIFFICULTY: "normal"
-      MAX_PLAYERS: "10"
 
-      ONLINE_MODE: "true"
-      ENABLE_WHITELIST: "false"
-
-      VIEW_DISTANCE: "12"
-      SIMULATION_DISTANCE: "8"
+      MAX_PLAYERS: "20"
 
       MEMORY: "4G"
 
-      # Descarga automática de plugins
+      ONLINE_MODE: "TRUE"
+
+      ENABLE_WHITELIST: "FALSE"
+
+      ALLOW_FLIGHT: "TRUE"
+
+      PVP: "TRUE"
+
+      SPAWN_PROTECTION: "0"
+
+      VIEW_DISTANCE: "12"
+
+      SIMULATION_DISTANCE: "8"
+
+      ENABLE_RCON: "TRUE"
+
+      RCON_PASSWORD: "CambiaEstaContraseña123"
+
+      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+
+      # Plugins descargados automáticamente
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
+        https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/latest/PAPER/download
+        https://hangarcdn.papermc.io/plugins/ViaVersion/ViaBackwards/versions/latest/PAPER/download
+        https://download.luckperms.net/1560/bukkit/loader/LuckPerms-Bukkit-5.5.9.jar
 
     volumes:
       - minecraft-crossplay-data:/data
