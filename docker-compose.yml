@@ -11,9 +11,10 @@ services:
       EULA: "TRUE"
       VERSION: "LATEST"
       TZ: "America/Lima"
+      ALLOW_LIST: "false"
 
-      SERVER_NAME: "Servidor de Beni"
-      LEVEL_NAME: "Mi Mundo"
+      SERVER_NAME: "Servidor de EPIS"
+      LEVEL_NAME: "Agua Dulce"
 
       GAMEMODE: "survival"
       DIFFICULTY: "normal"
