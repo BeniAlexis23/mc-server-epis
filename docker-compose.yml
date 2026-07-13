@@ -10,7 +10,7 @@ services:
       # Minecraft Java
       - "25565:25565/tcp"
 
-      # Minecraft Bedrock (Geyser)
+      # Minecraft Bedrock mediante Geyser
       - "19132:19132/udp"
 
     environment:
@@ -20,50 +20,43 @@ services:
       # Zona horaria
       TZ: "America/Lima"
 
-      # Tipo de servidor
+      # Servidor Java optimizado
       TYPE: "PAPER"
 
-      # Siempre la última versión estable
+      # Última versión estable disponible
       VERSION: "LATEST"
 
-      # Configuración del servidor
-      MOTD: "§aServidor EPIS §7| §bJava + Bedrock"
+      # Configuración general
+      MOTD: "Servidor EPIS | Java + Bedrock"
       SERVER_NAME: "Servidor EPIS"
 
       MODE: "survival"
       DIFFICULTY: "normal"
-
       MAX_PLAYERS: "20"
 
       MEMORY: "4G"
 
       ONLINE_MODE: "TRUE"
-
       ENABLE_WHITELIST: "FALSE"
 
       ALLOW_FLIGHT: "TRUE"
-
       PVP: "TRUE"
-
       SPAWN_PROTECTION: "0"
 
       VIEW_DISTANCE: "12"
-
       SIMULATION_DISTANCE: "8"
 
+      # Administración remota
       ENABLE_RCON: "TRUE"
+      RCON_PASSWORD: "CambiaEstaClavePorUnaSegura"
 
-      RCON_PASSWORD: "CambiaEstaContraseña123"
-
+      # Aplicar las variables al server.properties
       OVERRIDE_SERVER_PROPERTIES: "TRUE"
 
-      # Plugins descargados automáticamente
+      # Plugins esenciales para Crossplay
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
         https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot
-        https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/latest/PAPER/download
-        https://hangarcdn.papermc.io/plugins/ViaVersion/ViaBackwards/versions/latest/PAPER/download
-        https://download.luckperms.net/1560/bukkit/loader/LuckPerms-Bukkit-5.5.9.jar
 
     volumes:
       - minecraft-crossplay-data:/data
