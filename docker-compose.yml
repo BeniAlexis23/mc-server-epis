@@ -7,39 +7,58 @@ services:
     tty: true
 
     ports:
+      # Java Edition
       - "25565:25565/tcp"
+
+      # Bedrock Edition (Geyser)
       - "19132:19132/udp"
 
     environment:
       EULA: "TRUE"
+
       TZ: "America/Lima"
 
       TYPE: "PAPER"
+
       VERSION: "LATEST"
-
-      MOTD: "Servidor EPIS | Java + Bedrock"
-      SERVER_NAME: "Servidor EPIS"
-
-      MODE: "survival"
-      DIFFICULTY: "normal"
-      MAX_PLAYERS: "20"
 
       MEMORY: "4G"
 
+      MOTD: "§aServidor EPIS §7| §bJava + Bedrock"
+
+      MODE: "survival"
+
+      DIFFICULTY: "normal"
+
+      MAX_PLAYERS: "20"
+
       ONLINE_MODE: "TRUE"
+
       ENABLE_WHITELIST: "FALSE"
 
       ALLOW_FLIGHT: "TRUE"
+
       PVP: "TRUE"
+
       SPAWN_PROTECTION: "0"
 
       VIEW_DISTANCE: "12"
+
       SIMULATION_DISTANCE: "8"
 
       ENABLE_RCON: "TRUE"
-      RCON_PASSWORD: "CAMBIA_ESTA_CLAVE_POR_UNA_SEGURA"
+
+      RCON_PORT: "25575"
+
+      RCON_PASSWORD: "Minecraft2026!"
 
       OVERRIDE_SERVER_PROPERTIES: "TRUE"
+
+      ENABLE_AUTOPAUSE: "FALSE"
+
+      USE_AIKAR_FLAGS: "TRUE"
+
+      JVM_XX_OPTS: "-XX:+UseG1GC"
 
       PLUGINS: |
         https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
@@ -47,7 +66,7 @@ services:
         https://ci.viaversion.com/job/ViaVersion/lastSuccessfulBuild/artifact/build/libs/ViaVersion.jar
 
     volumes:
-      - minecraft-crossplay-data:/data
+      - minecraft-data:/data
 
 volumes:
-  minecraft-crossplay-data:
+  minecraft-data:
