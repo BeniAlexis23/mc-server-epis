@@ -32,7 +32,7 @@ services:
 
       MAX_PLAYERS: "20"
 
-      ONLINE_MODE: "TRUE"
+      ONLINE_MODE: "FALSE" #cuentas originales de Minecraft, si quieres que sea solo para cuentas premium ponlo en TRUE
 
       ENABLE_WHITELIST: "FALSE"
 
